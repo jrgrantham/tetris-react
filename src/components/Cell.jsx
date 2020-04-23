@@ -26,27 +26,21 @@ const StyledCell = styled.div`
 
   border: ${borderThickness}px solid;
   border-bottom-color: ${(props) =>
-    props.type === 0
-      ? `rgba(0, 0, 0, 0)`
-      : `rgba(${props.color}, 0.1)`};
+    props.type === 0 ? `rgba(0, 0, 0, 0)` : `rgba(${props.color}, 0.1)`};
   border-right-color: ${(props) =>
-    props.type === 0
-      ? `rgba(0, 0, 0, 0)`
-      : `rgba(${props.color}, 1)`};
+    props.type === 0 ? `rgba(0, 0, 0, 0)` : `rgba(${props.color}, 1)`};
   border-top-color: ${(props) =>
-    props.type === 0
-      ? `rgba(0, 0, 0, 0)`
-      : `rgba(${props.color}, 1)`};
+    props.type === 0 ? `rgba(0, 0, 0, 0)` : `rgba(${props.color}, 1)`};
   border-left-color: ${(props) =>
-    props.type === 0
-      ? `rgba(0, 0, 0, 0)`
-      : `rgba(${props.color}, 0.3)`};
+    props.type === 0 ? `rgba(0, 0, 0, 0)` : `rgba(${props.color}, 0.3)`};
 `;
 
 const Cell = ({ type }) => {
   return (
-    <StyledCell type={type} color={TETROMINOS[type].color} />
+    <StyledCell type={type} color={TETROMINOS[type].color}>
+      {console.log("render cell")}
+    </StyledCell>
   );
 };
 
-export default Cell;
+export default React.memo(Cell);
