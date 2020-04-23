@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 export const StyledTetrisWrapper = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
   background: #303030;
   /* border: 4px solid red; */
@@ -19,7 +21,7 @@ export const StyledTetris = styled.div`
   padding: 10px;
   background: black;
   /* padding: 0 40px; */
-  margin: auto;
+  margin: 0 50px;
   max-width: 400px;
 
   .scores {

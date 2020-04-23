@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSwipeable, Swipeable } from "react-swipeable";
 
 import { createStage, checkCollision } from "../gameHelpers";
 import { StyledTetrisWrapper, StyledTetris } from "./styles/StyledTetris";
@@ -80,6 +81,10 @@ const Tetris = () => {
     drop();
   };
 
+  const swipeDrop = () => {
+    drop();
+  };
+
   // This one starts the game
   // Custom hook by Dan Abramov
   useInterval(() => {
@@ -100,6 +105,20 @@ const Tetris = () => {
     }
   };
 
+  const swipe = (swipeDir) => {
+    if (!gameOver) {
+      if (swipeDir === 'Left') {
+        movePlayer(-1);
+      } else if (swipeDir === 'Right') {
+        movePlayer(1);
+      } else if (swipeDir === 'Down') {
+        swipeDrop();
+      } else if (swipeDir === 'Up') {
+        playerRotate(stage, 1);
+      }
+    }
+  };
+
   return (
     <StyledTetrisWrapper
       role="button"
@@ -108,20 +127,26 @@ const Tetris = () => {
       onKeyUp={keyUp}
     >
       <StyledTetris>
-        <div className='scores'>
+        <div className="scores">
           <Display text={`Score: ${score}`} />
-          <Display text={`Rows: ${rows}`} />
+          {/* <Display text={`Rows: ${rows}`} /> */}
           <Display text={`Level: ${level}`} />
         </div>
-        <Stage stage={stage} />
-        <aside>
+        <Swipeable
+          onSwiped={(e) => {
+            swipe(e.dir);
+            console.log(e.dir);
+          }}
+        >
+          <Stage stage={stage} />
+        </Swipeable>
+        {/* <aside>
           {gameOver ? (
             <Display gameOver={gameOver} text="Game Over" />
           ) : (
-            <div>
-            </div>
+            <div></div>
           )}
-        </aside>
+        </aside> */}
         <StartButton callback={startGame} />
       </StyledTetris>
     </StyledTetrisWrapper>
