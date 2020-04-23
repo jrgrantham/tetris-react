@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledDisplay = styled.div`
-  width: 30%;
+  width: calc(50% - 5px);
   box-sizing: border-box;
   display: flex;
   align-items: center; 
