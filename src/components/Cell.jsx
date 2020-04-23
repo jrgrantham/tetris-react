@@ -1,10 +1,20 @@
+// import React from 'react';
+// import { StyledCell } from './styles/StyledCell';
+// import { TETROMINOS } from '../tetrominos';
+
+// const Cell = ({ type }) => (
+//   <StyledCell type={type} color={TETROMINOS[type].color} />
+// )
+
+// export default Cell;
+
 import React from "react";
 import styled from "styled-components";
-import { tetrominos } from "../tetrominos";
-import { stage_width } from "../gameHelpers";
+import { TETROMINOS } from "../tetrominos";
+import { STAGE_WIDTH } from "../gameHelpers";
 
 const borderThickness = 4;
-const cellWidth = 100 / stage_width;
+const cellWidth = 100 / STAGE_WIDTH;
 // can now change stage width in gameHelpers
 
 const StyledCell = styled.div`
@@ -35,7 +45,7 @@ const StyledCell = styled.div`
 
 const Cell = ({ type }) => {
   return (
-    <StyledCell type={type} color={tetrominos[type].color} />
+    <StyledCell type={type} color={TETROMINOS[type].color} />
   );
 };
 
