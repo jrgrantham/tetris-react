@@ -107,13 +107,13 @@ const Tetris = () => {
 
   const swipe = (swipeDir) => {
     if (!gameOver) {
-      if (swipeDir === 'Left') {
+      if (swipeDir === "Left") {
         movePlayer(-1);
-      } else if (swipeDir === 'Right') {
+      } else if (swipeDir === "Right") {
         movePlayer(1);
-      } else if (swipeDir === 'Down') {
+      } else if (swipeDir === "Down") {
         swipeDrop();
-      } else if (swipeDir === 'Up') {
+      } else if (swipeDir === "Up") {
         playerRotate(stage, 1);
       }
     }
@@ -147,7 +147,16 @@ const Tetris = () => {
             <div></div>
           )}
         </aside> */}
-        <StartButton callback={startGame} />
+        {!dropTime ? (
+          <StartButton callback={startGame} />
+        ) : (
+          <div className="scores">
+            <p onClick={() => movePlayer(-1)} >Left</p>
+            <p onClick={() => playerRotate(stage, 1)} >Rotate</p>
+            <p onClick={() => swipeDrop()} >Drop</p>
+            <p onClick={() => movePlayer(1)} >Right</p>
+          </div>
+        )}
       </StyledTetris>
     </StyledTetrisWrapper>
   );
