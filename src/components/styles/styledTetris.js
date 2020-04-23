@@ -1,26 +1,31 @@
-import styled from 'styled-components';
-
-import bgImage from '../../img/bg.png';
+import styled from "styled-components";
 
 export const StyledTetrisWrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background: url(${bgImage}) #000;
-  background-size: cover;
-  overflow: hidden;
+  display: flex;
+  box-sizing: border-box;
+  background: #303030;
+  /* border: 4px solid red; */
 `;
 
 export const StyledTetris = styled.div`
+  box-sizing: border-box;
+  /* border: 40px solid red; */
   display: flex;
-  align-items: flex-start;
-  padding: 40px;
-  margin: 0 auto;
-  max-width: 900px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: black;
+  /* padding: 0 40px; */
+  margin: auto;
+  max-width: 400px;
 
-  aside {
+  .scores {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
     width: 100%;
-    max-width: 200px;
-    display: block;
-    padding: 0 20px;
   }
 `;
